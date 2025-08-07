@@ -10,10 +10,30 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationStack {
-            Text("This is the root view 🌳")
-            NavigationLink(destination: Text("You've arrived to the Second View 🎊")) {
-                Text("Click me!")
+            VStack {
+                Text("This is the root view 🌳")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .padding(40.0)
+                NavigationLink(destination: SecondView()) {
+                    Text("Click me!")
+                        .font(.title)
+                        .fontWeight(.heavy)
+                        .foregroundColor(Color.green)
+                }
+                NavigationLink(destination: Text("Welcome to the Third View! 🤩")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .padding(40.0)) {
+                    Text("Click me too!")
+                        .font(.title)
+                        .fontWeight(.heavy)
+                        .foregroundColor(Color.green)
+                }
             }
+            .navigationTitle("Home")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarHidden(true)
         } // end of navigation stack
 
     }
